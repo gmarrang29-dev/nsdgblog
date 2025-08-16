@@ -1,11 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="eoqpAFoqhaIawQj29-ATXQHIu1qaqXdL9J5lFqQw3yk" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>nsdgblog</title>
+     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    hello word
+    <header>
+    <div class="container">
+        <h1 class="blog-logo">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img width=" 50px" src="https://i.namu.wiki/i/QWVJJqQ2U_KE1A1BkDI5WwhFcIeQ4C9uGIgibUWPHr3ev65fv4JW9_Yd-66EVu_0TF8mMXIh9k_dnrv_DlLBCw.svg" alt="학교 로고">
+            </a>
+        </h1>
+
+        <div class="search-box">
+            <form>
+                <input class="search" type="text" placeholder="글을 검색해주세요" class="search-input">
+                <button class="bt" type="submit" class="search-button">검색</button>
+            </form>
+        </div>
+</header>
+<nav>
+    <a href="login.html">로그인</a>
+    <a href="signup.html">회원가입</a>
+</nav>
+ <main>
+        <div class="container">
+            <section id="post-list-section"> 
+        </div>
+          <h2>최근 글</h2>
+                <!-- 아래는 예시 글이고 여기에 사람들이 쓴 글 오게 할거임 -->
+                <ul class="post-list">
+                    <li class="post-item">
+                        <a href="#" class="post-title-link" data-post-id="1">대건제 후기</a>
+                        <div class="post-meta">
+                            <span class="author">작성자: 신유진</span> |
+                            <span class="date">작성일: 2025.8.8</span>
+                        </div>
+                    </li>
+                    <li class="post-item">
+                        <a href="#" class="post-title-link" data-post-id="2">DART 부원 모집 안내</a>
+                        <div class="post-meta">
+                            <span class="author">작성자: 신유진</span> |
+                            <span class="date">작성일: 2025.8.8</span>
+                        </div>
+                    </li>
+                    <li class="post-item">
+                        <a href="#" class="post-title-link" data-post-id="3">공부 꿀팁</a>
+                        <div class="post-meta">
+                            <span class="author">작성자: 신유진</span> |
+                            <span class="date">작성일: 2025.8.8</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="main-actions">
+                    <button id="wrtie-btn" class="write-button">
+                        글쓰기
+                    </button>
+                </div>  
+            </section>
+            <!-- 글 누르면 나오는 상세 내용들 넣을거임 -->
+            <!--css로 숨기고 JS로 작동시킬거임-->
+             <section id="post-detail-section" style="display: none;">
+                <article class="post-detail-content">
+                    <h2 class="post-detail-title"></h2>
+                    <div class="post-detail-meta">
+                        <span class="author"></span> |
+                        <span class="date"></span>
+                    </div>
+                    <div class="post-detail-text"></div>
+                </article>
+                <button id="back-to-list-btn">목록으로 돌아가기</button>
+            </section>
+</main>
+<aside>
+    <div class="container">
+        <img width="30px"  src="https://yt3.googleusercontent.com/phyigngHB_ILjVeVUjRK_1iyynHvSx_Zg6W9h6VutjUHpkJnhIi5_WtdbUNvoDuMIQD6JbUTQ9I=s900-c-k-c0x00ffffff-no-rj">
+        <a href="https://www.youtube.com/@%EB%85%BC%EC%82%B0%EB%8C%80%EA%B1%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90">대건고 유튜브</a>
+    <br>
+        <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png">
+        <a href="facebook.com/nonsandghspublicrelationspage">대건고 페이스북</a>
+    <br>
+        <img width="30px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAY1BMVEX////7/P6xxPaBofF3m/BnkO+YsvPg5/vz9v2vwva8zPcAXuoIYuoYZuoAW+nG0/gAWekAXeoka+va4/v09/6Jp/Krv/Vyl/AcaOuVr/MRZOpgjO9NgO3Az/heiu7Z4voAVum0IPuaAAAA+ElEQVR4Ac3SBxKDIBAF0MVewLCkQOz3P2UGB7/gCfKnWHjUhf4oIsuLkLKqm6IVlKTrpQoZHkSNltwl7dqc4ScRvdgYHQnBaFdvCsCwAPhIgL4GkB+AQgHwNaQqAKy7g8EDC/AdL9CQjx9h/ALUGmDMAHRNSCEh3AlkQVGm3gWg5gO4fqIkj9KMPB7CZS8ayoXSLBMLkRnlycjS3MHau2P983kitymsNIZf/s0FgEVimwFkI4Suo4NCbRoGiA7KKgC6gLNpsYYUJMX6jChT3QNE5RYM8FYALOIrF8DGaNfppWS5+wMfVIjsO0oiWkt1VRYheSvof/ID4zIbIRcZiXoAAAAASUVORK5CYII=">
+        <a href="nsdg.cloud">대건고 인트라넷</a>
+    </div>
+</aside>
+
+<footer>
+    <div class="container">
+        <p>대건고 코딩 동아리 DART 1학년</p>
+    </div> 
+</footer>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBHNeTp9MsGjJTtVfdHq4xr81uo7g6WNpg",
+    authDomain: "dgblog-d9fd1.firebaseapp.com",
+    projectId: "dgblog",
+    storageBucket: "dgblog.firebasestorage.app",
+    messagingSenderId: "282660858456",
+    appId: "1:282660858456:web:2fd61ac4ec3fe80f6ff82d",
+    measurementId: "G-3PF17N5R22"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
