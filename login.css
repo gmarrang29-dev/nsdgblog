@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'FlightSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/FlightSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'FlightSans-Bold';
 }
 
 body{
@@ -22,6 +30,7 @@ body{
     border-radius: 13px;
     padding: 70px 20px;
     box-shadow: 0 0 10px;
+    font-size:px;
 } 
 
 h2{
@@ -35,6 +44,7 @@ h2{
     background: ffff00;
     margin:20px 0 ;
     border-radius: 10px;
+    font-size: 20px;
     
 }
 
@@ -42,8 +52,8 @@ h2{
     position:absolute;
     font-size: xx-large;
     transform: translateY();
-    right: 38%;
-    bottom: 50.5%;
+    right: 530px;
+    top: 300px
 }
 
 
