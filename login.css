@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://i.namu.wiki/i/sTBHS5XIcgcUSE4BaBEnXnNRC0JNrrMVgaiU3JtKBREU91LsYA8a3_mHm4f1AeYrTkdgHpxUZdjckqYZ0vyylA.webp');
+    background-size: cover;
+    backdrop-filter: blur(5px);
+
+}
+
+.lwap{
+    width: 420px;
+    background-color:white ;
+    border:2px solid;
+    border-radius: 13px;
+    padding: 70px 20px;
+    box-shadow: 0 0 10px;
+} 
+
+h2{
+    font-size: 35px;
+    text-align: center;
+}
+
+.lwap button{
+    width:100%;
+    height: 50px;
+    background: ffff00;
+    margin:20px 0 ;
+    border-radius: 10px;
+    
+}
+
+.lwap i{
+    position:absolute;
+    font-size: xx-large;
+    transform: translateY();
+    right: 38%;
+    bottom: 50.5%;
+}
+
+
