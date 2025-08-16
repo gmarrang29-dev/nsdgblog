@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="eoqpAFoqhaIawQj29-ATXQHIu1qaqXdL9J5lFqQw3yk" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class= lwap>
+<form action="">
+    <h2>로그인</h2>
+    <button id="loginBtn" type="button">구글로 로그인</button><nav>
+    <button id="guest">게스트로 로그인</button>
+ </nav>
+ </form>
+ </div>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBHNeTp9MsGjJTtVfdHq4xr81uo7g6WNpg", // 이 부분은 보안상 실제 키를 사용해주세요
+    authDomain: "dgblog-d9fd1.firebaseapp.com",
+    projectId: "dgblog",
+    storageBucket: "dgblog.firebasestorage.app",
+    messagingSenderId: "282660858456",
+    appId: "1:282660858456:web:2fd61ac4ec3fe80f6ff82d",
+    measurementId: "G-3PF17N5R22"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>
