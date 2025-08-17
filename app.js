@@ -1,8 +1,6 @@
-// 1. 파이어베이스 기능들을 딱 한 번만 불러옵니다.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
-// 2. 파이어베이스 비밀 열쇠
 const firebaseConfig = {
     apiKey: "AIzaSyBEMuXpcTWRGj7gQzrTNlTY-yYQm33J36s",
     authDomain: "nsdgblog-42b3e.firebaseapp.com",
@@ -13,15 +11,12 @@ const firebaseConfig = {
 
 };
 
-// 3. 파이어베이스 앱을 딱 한 번만 초기화합니다.
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// 4. HTML의 '구글로 로그인' 버튼 가져오기
 const loginBtn = document.getElementById('loginBtn');
 
-// 5. '구글로 로그인' 버튼 클릭 시 행동 정의
 loginBtn.addEventListener('click', () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -32,10 +27,8 @@ loginBtn.addEventListener('click', () => {
     });
 });
 
-// 6. 로그인 상태 감시자
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // 로그인 성공 시 'main.html' 페이지로 이동
-    window.location.href = "main.html";
+    window.location.href = "index.html";
   }
 });
