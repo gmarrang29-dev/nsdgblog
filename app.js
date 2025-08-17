@@ -20,6 +20,7 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
+
 // 2. 파이어베이스 초기화
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
@@ -49,7 +50,7 @@ auth.onAuthStateChanged((user) => {
     // 사용자가 로그인된 상태라면?
     // main.html 페이지로 즉시 이동!
     console.log("로그인 상태입니다. 메인 페이지로 이동합니다.");
-    window.location.href = "main.html"; // <-- 로그인 후 이동할 페이지 주소
+    window.location.href = "index.html"; // <-- 로그인 후 이동할 페이지 주소
   } else {
     // 사용자가 로그아웃된 상태라면?
     // 로그인 페이지에 머무름
