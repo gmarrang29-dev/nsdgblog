@@ -1,53 +1,88 @@
-document.getElementById('write-btn').addEventListener('click', () => {
-    window.location.href = "write.html";
-});
 
-// index.js
-
-// 1. firebase-config.js에서 만들어둔 auth와 db 객체를 가져옵니다.
 import { auth, db } from './firebase-config.js';
-
-// 2. 이제 Firebase SDK에서 필요한 다른 함수들을 가져옵니다.
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { collection, query, getDocs } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { collection, query, orderBy, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// 3. 이제 바로 auth와 db 변수를 사용해서 코드를 작성하면 됩니다.
-// 예: onAuthStateChanged(auth, (user) => { ... });import { getFirestore, collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-// ... (initializeApp, getAuth 등)
+const postList = document.querySelector('.post-list');
+const writeBtn = document.getElementById('write-btn');
+const headerLoginLink = document.querySelector('header a[href="login.html"]');
+const writeButtonContainer = document.querySelector('.main-actions');
 
-const db = getFirestore(app);
-
-// Firestore에서 글 목록을 가져오는 함수
 async function fetchPosts() {
-    const postList = document.querySelector('.post-list');
-    postList.innerHTML = ''; // 기존 목록 비우기
+    postList.innerHTML = ''; 
+    const currentUser = auth.currentUser; 
 
-    // 'posts' 컬렉션의 모든 문서를 'createdAt' 필드를 기준으로 내림차순(최신순)으로 정렬하여 가져옵니다.
     const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
-    
-    querySnapshot.forEach((doc) => {
-        const post = doc.data(); // 각 문서의 데이터 (제목, 내용 등)
-        const postId = doc.id; // 문서의 고유 ID
 
-        // 목록에 표시할 HTML 요소를 만듭니다.
+    querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        const postId = doc.id;
+
         const listItem = document.createElement('li');
         listItem.className = 'post-item';
-        
-        // Firestore에서 가져온 날짜(Timestamp)를 'YYYY.MM.DD' 형식으로 변환
+
         const date = post.createdAt.toDate();
         const formattedDate = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
-        
+
+        let buttonsHTML = '';
+        if (currentUser && currentUser.email === post.authorEmail) {
+            buttonsHTML = `
+                <div class="post-buttons">
+                    <button onclick="editPost('${postId}')">수정</button>
+                    <button onclick="deletePost('${postId}')">삭제</button>
+                </div>
+            `;
+        }
+
         listItem.innerHTML = `
             <a href="#" class="post-title-link" data-post-id="${postId}">${post.title}</a>
             <div class="post-meta">
                 <span class="author">작성자: ${post.author}</span> |
                 <span class="date">작성일: ${formattedDate}</span>
             </div>
+            ${buttonsHTML}
         `;
         postList.appendChild(listItem);
     });
 }
 
-// 페이지가 로드되면 글 목록을 불러옵니다.
-window.onload = fetchPosts;
+function updateLoginUI(user) {
+    if (user) {
+        headerLoginLink.innerHTML = `${user.displayName}님 <button id="logout-btn">로그아웃</button>`;
+        writeButtonContainer.style.display = 'block'; // 
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            signOut(auth);
+        });
+    } else {
+        headerLoginLink.innerHTML = '<a href="login.html">로그인</a>';
+        writeButtonContainer.style.display = 'none'; 
+    }
+    fetchPosts();
+}
+
+window.deletePost = async (postId) => {
+    if (confirm("정말 삭제하시겠습니까?")) {
+        try {
+            await deleteDoc(doc(db, "posts", postId));
+            fetchPosts(); 
+        } catch (error) {
+            console.error("삭제 중 오류 발생: ", error);
+        }
+    }
+};
+
+window.editPost = (postId) => {
+    window.location.href = `write.html?id=${postId}`;
+};
+
+
+function initializePage() {
+    writeBtn.addEventListener('click', () => {
+        window.location.href = "write.html";
+    });
+
+    onAuthStateChanged(auth, updateLoginUI);
+}
+
+initializePage();
