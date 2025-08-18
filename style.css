@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'FlightSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/FlightSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+*{
+    font-family: 'FlightSans-Bold';
+
+}
+  body {
+  margin: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "main main aside"
+    "footer footer footer";
+  grid-template-columns: 1fr 1fr 300px;
+  grid-template-rows: auto 1fr auto;
+
+  gap: 20px;
+ 
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+main {
+  grid-area: main;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #f1f3f5;
+  padding: 20px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-logo {
+    margin: 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 160vh;
+}
+
+.search-box input{
+        padding: 15px 40px;
+
+}
+
+.search {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bt {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li.post-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+#post-list-section h2 {
+    margin-top: 0;
+}
+
+#post-list-section .post-list {
+    margin-bottom: 20px;
+}
+
+#wrtie-btn {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+aside .container img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.log-in,.join{
+    text-align: right;
+}
+
+aside{
+  text-decoration: none;
+}
+.logo{
+}
