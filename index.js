@@ -89,7 +89,7 @@ function initializePage() {
         // 클릭된 것이 제목 링크('.post-title-link')가 맞는지 확인
         if (event.target.classList.contains('post-title-link')) {
             const postId = event.target.dataset.postId;
-            // 상세 내용을 보여주는 대신, detail.html 페이지로 ID를 가지고 이동
+            // 바로 이 부분! 숨기고 보여주는 대신 detail.html로 ID를 가지고 이동시킵니다.
             window.location.href = `detail.html?id=${postId}`;
         }
     });
