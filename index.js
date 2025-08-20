@@ -2,11 +2,13 @@ import { auth, db } from './firebase-config.js';
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { collection, getDocs, query, orderBy, startAt, endAt } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+// HTML 요소를 정확한 선택자로 다시 선언합니다.
 const headerLoginLink = document.querySelector('header a[href="login.html"]');
-const writeButtonContainer = document.getElementById('write-button-container');
-const postList = document.getElementById('post-list');
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
+const writeButtonContainer = document.querySelector('.main-actions');
+const postList = document.querySelector('.post-list');
+const searchForm = document.querySelector('.search-box form');
+const searchInput = document.querySelector('.search');
+const writeBtn = document.getElementById('write-btn');
 
 async function fetchPosts() {
     postList.innerHTML = '';
@@ -68,8 +70,10 @@ async function searchPosts(keyword) {
 }
 
 function initializePage() {
-    searchButton.addEventListener('click', (event) => {
-        event.preventDefault();
+    // 검색은 버튼 클릭이 아닌 form 제출(submit) 이벤트로 처리하는 것이
+    // 엔터 키와 검색 버튼 클릭을 모두 잡을 수 있어 더 효율적입니다.
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // form 제출 시 페이지가 새로고침되는 것을 막습니다.
         const keyword = searchInput.value.trim();
         if (keyword) {
             searchPosts(keyword);
@@ -77,18 +81,12 @@ function initializePage() {
             fetchPosts();
         }
     });
-
-    searchInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            const keyword = searchInput.value.trim();
-            if (keyword) {
-                searchPosts(keyword);
-            } else {
-                fetchPosts();
-            }
-        }
-    });
+    
+    if(writeBtn) {
+        writeBtn.addEventListener('click', () => {
+            window.location.href = "write.html";
+        });
+    }
 
     postList.addEventListener('click', (event) => {
         if (event.target.classList.contains('post-title-link')) {
