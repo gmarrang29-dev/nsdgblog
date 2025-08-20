@@ -2,9 +2,11 @@ import { auth, db } from './firebase-config.js';
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { collection, getDocs, query, orderBy, startAt, endAt } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-const headerLoginLink = document.getElementById('header-login-link');
+const headerLoginLink = document.querySelector('header a[href="login.html"]');
 const writeButtonContainer = document.getElementById('write-button-container');
 const postList = document.getElementById('post-list');
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
 
 async function fetchPosts() {
     postList.innerHTML = '';
@@ -66,10 +68,8 @@ async function searchPosts(keyword) {
 }
 
 function initializePage() {
-    const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-button');
-
-    searchButton.addEventListener('click', () => {
+    searchButton.addEventListener('click', (event) => {
+        event.preventDefault();
         const keyword = searchInput.value.trim();
         if (keyword) {
             searchPosts(keyword);
@@ -80,6 +80,7 @@ function initializePage() {
 
     searchInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
+            event.preventDefault();
             const keyword = searchInput.value.trim();
             if (keyword) {
                 searchPosts(keyword);
