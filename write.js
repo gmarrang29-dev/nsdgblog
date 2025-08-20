@@ -1,11 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+// firebase-config.js에서 필요한 모든 것을 가져옵니다.
+import { auth, db } from './firebase-config.js';
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { collection, addDoc, serverTimestamp, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBEMuXpcTWRGj7gQzrTNlTY-yYQm33J36s",
-    authDomain: "nsdgblog-42b3e.firebaseapp.com",
-    projectId: "nsdgblog-42b3e",
+apiKey: "AIzaSyBEMuXpcTWRGj7gQzrTNlTY-yYQm33J36s",
+authDomain: "nsdgblog-42b3e.firebaseapp.com",
+projectId: "nsdgblog-42b3e",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -13,6 +17,7 @@ const auth = getAuth(app);
 const db = getFirestore(app); 
 
 const titleInput = document.getElementById('title-input');
+// ... (이하 동일)
 const contentInput = document.getElementById('content-input');
 const saveBtn = document.getElementById('save-btn');
 
