@@ -5,77 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nsdgblog</title>
-     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="grid-container">
-    <header>
-    <div class="container">
-
-        <h1 class="blog-logo">
-            <a href="http://127.0.0.1:5500/index.html">
-                <img width=" 50px" src="https://i.namu.wiki/i/QWVJJqQ2U_KE1A1BkDI5WwhFcIeQ4C9uGIgibUWPHr3ev65fv4JW9_Yd-66EVu_0TF8mMXIh9k_dnrv_DlLBCw.svg" alt="학교 로고">
-            </a>
-        </h1>
-        <div class="search-box">
-            <form>
-                <input class="search" type="text" placeholder="글을 검색해주세요" class="search-input">
-                <button class="bt" type="submit" class="search-button">검색</button>
-            </form>
-        </div>
-        <a href="login.html">로그인</a>
-</header>
-
- <main>
-        <div class="container">
-            <section id="post-list-section"> 
-        </div>
-          <h2>최근 글</h2>
-                <!-- 아래는 예시 글이고 여기에 사람들이 쓴 글 오게 할거임 -->
-                <ul class="post-list">
-                    
-                </ul>
-                <div class="main-actions">
-                    <button id="write-btn" class="write-button">
-                        글쓰기
-                    </button>
-                </div>  
-            </section>
-            <!-- 글 누르면 나오는 상세 내용들 넣을거임 -->
-            <!--css로 숨기고 JS로 작동시킬거임-->
-     <section id="post-detail-section" style="display: none;">
-        <article class="post-detail-content">   
-        <h2 id="post-detail-title"></h2> 
-            <div class="post-detail-meta">
-                <span id="post-detail-author"></span> |
-                <span id="post-detail-date"></span>
+        <header>
+            <div class="container">
+                <h1 class="blog-logo">
+                    <a href="http://127.0.0.1:5500/index.html">
+                        <img width="50px" src="https://i.namu.wiki/i/QWVJJqQ2U_KE1A1BkDI5WwhFcIeQ4C9uGIgibUWPHr3ev65fv4JW9_Yd-66EVu_0TF8mMXIh9k_dnrv_DlLBCw.svg" alt="학교 로고">
+                    </a>
+                </h1>
+                <div class="search-box">
+                    <form>
+                        <input class="search" type="text" placeholder="글을 검색해주세요" class="search-input">
+                        <button class="bt" type="submit" class="search-button">검색</button>
+                    </form>
+                </div>
+                <a href="login.html">로그인</a>
             </div>
-            <div id="post-detail-text"></div>
-            </article>
-        <button id="back-to-list-btn">목록으로 돌아가기</button>
-    </section>
-</main>
-<aside>
-    <div class="container">
-        <img width="30px"  src="https://yt3.googleusercontent.com/phyigngHB_ILjVeVUjRK_1iyynHvSx_Zg6W9h6VutjUHpkJnhIi5_WtdbUNvoDuMIQD6JbUTQ9I=s900-c-k-c0x00ffffff-no-rj">
-        <a href="https://www.youtube.com/@%EB%85%BC%EC%82%B0%EB%8C%80%EA%B1%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90">대건고 유튜브</a>
-    <br>
-        <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png">
-        <a href="facebook.com/nonsandghspublicrelationspage">대건고 페이스북</a>
-    <br>
-        <img width="30px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAY1BMVEX////7/P6xxPaBofF3m/BnkO+YsvPg5/vz9v2vwva8zPcAXuoIYuoYZuoAW+nG0/gAWekAXeoka+va4/v09/6Jp/Krv/Vyl/AcaOuVr/MRZOpgjO9NgO3Az/heiu7Z4voAVum0IPuaAAAA+ElEQVR4Ac3SBxKDIBAF0MVewLCkQOz3P2UGB7/gCfKnWHjUhf4oIsuLkLKqm6IVlKTrpQoZHkSNltwl7dqc4ScRvdgYHQnBaFdvCsCwAPhIgL4GkB+AQgHwNaQqAKy7g8EDC/AdL9CQjx9h/ALUGmDMAHRNSCEh3AlkQVGm3gWg5gO4fqIkj9KMPB7CZS8ayoXSLBMLkRnlycjS3MHau2P983kitymsNIZf/s0FgEVimwFkI4Suo4NCbRoGiA7KKgC6gLNpsYYUJMX6jChT3QNE5RYM8FYALOIrF8DGaNfppWS5+wMfVIjsO0oiWkt1VRYheSvof/ID4zIbIRcZiXoAAAAASUVORK5CYII=">
-        <a href="nsdg.cloud">대건고 인트라넷</a>
-    <br>
-        <a href="http://nonsandaegeon.cnehs.kr/main.do">본교 공식 사이트</a>
-    </div>
-</aside>
+        </header>
 
-<footer>
-    <div class="container">
-        <p>대건고 코딩 동아리 DART 1학년</p>
-    </div> 
-</footer>
-</div>
-    <script type= "module" src="index.js"></script> 
-</body>
-</html>
+        <main>
+            <div class="container">
+                <section id="post-list-section">
+                    <h2>최근 글</h2>
+                    <ul class="post-list">
+                        
+                    </ul>
+                    <div class="main-actions">
+                        <button id="write-btn" class="write-button">
+                            글쓰기
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <aside>
+            <div class="container">
+                <img width="30px" src="https://yt3.googleusercontent.com/phyigngHB_ILjVeVUjRK_1iyynHvSx_Zg6W9h6VutjUHpkJnhIi5_WtdbUNvoDuMIQD6JbUTQ9I=s900-c-k-c0x00ffffff-no-rj">
+                <a href="https://www.youtube.com/@%EB%85%BC%EC%82%B0%EB%8C%80%EA%B1%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90">대건고 유튜브</a>
+                <br>
+                <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png">
+                <a href="facebook.com/nonsandghspublicrelationspage">대건고 페이스북</a>
+                <br>
+                <img width="30px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAY1BMVEX////7/P6xxPaBofF3m/BnkO+YsvPg5/vz9v2vwva8zPcAXuoIYuoYZuoAW+nG0/gAWekAXeoka+va4/v09/6Jp/Krv/Vyl/AcaOuVr/MRZOpgjO9NgO3Az/heiu7Z4voAVum0IPuaAAAA+ElEQVR4Ac3SBxKDIBAF0MVewLC
